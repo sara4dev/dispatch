@@ -6,7 +6,7 @@ from dispatch.config import BaseConfigurationModel
 class SMTPConfiguration(BaseConfigurationModel):
     """SMTP configuration"""
 
-    smtp_server: SecretStr = Field(
+    smtp_server: str = Field(
         title="SMTP Server",
         description="SMTP Server address.",
     )
