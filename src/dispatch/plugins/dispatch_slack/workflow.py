@@ -247,7 +247,7 @@ def handle_workflow_submission_event(
             "workflowInstanceId": instance.id,
             "incident_name": instance.incident.name,
             "incident_title": instance.incident.title,
-            "incident_priority": instance.incident.incident_priority.name,
+            "incident_severity": instance.incident.incident_severity.name,
             "incident_status": instance.incident.status,
         }
     )
