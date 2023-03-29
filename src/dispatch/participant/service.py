@@ -100,6 +100,8 @@ def get_by_incident_id_and_conversation_id(
     """Get participant by incident and user_conversation id."""
     return (
         db_session.query(Participant)
+        .filter(Participant.incident_id.isnot(None))
+        .filter(Participant.user_conversation_id.isnot(None))
         .filter(Participant.incident_id == incident_id)
         .filter(Participant.user_conversation_id == user_conversation_id)
         .one_or_none()
@@ -112,7 +114,8 @@ def get_by_case_id_and_conversation_id(
     """Get participant by case and user_conversation id."""
     return (
         db_session.query(Participant)
-        .filter(Participant.case_id is not None)
+        .filter(Participant.case_id.isnot(None))
+        .filter(Participant.user_conversation_id.isnot(None))
         .filter(Participant.case_id == case_id)
         .filter(Participant.user_conversation_id == user_conversation_id)
         .one_or_none()
